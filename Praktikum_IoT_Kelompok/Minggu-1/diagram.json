@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "author": "Kelompok Praktikum IoT - Lab 0",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -50,
+      "left": -150,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledAlert",
+      "top": -40,
+      "left": 170,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rLed",
+      "top": 10,
+      "left": 170,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rPullup",
+      "top": -10,
+      "left": -90,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 130,
+      "left": -150,
+      "attrs": {
+        "color": "green"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      ""
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      ""
+    ],
+    [
+      "dht1:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "dht1:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "dht1:SDA",
+      "esp:D4",
+      "blue",
+      []
+    ],
+    [
+      "rPullup:1",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "rPullup:2",
+      "esp:D4",
+      "blue",
+      []
+    ],
+    [
+      "esp:D2",
+      "rLed:1",
+      "red",
+      []
+    ],
+    [
+      "rLed:2",
+      "ledAlert:A",
+      "red",
+      []
+    ],
+    [
+      "ledAlert:C",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "btn1:1.l",
+      "esp:D15",
+      "green",
+      []
+    ],
+    [
+      "btn1:2.l",
+      "esp:GND.2",
+      "black",
+      []
+    ]
+  ]
+}
